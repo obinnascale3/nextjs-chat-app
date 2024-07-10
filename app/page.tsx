@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import * as Langtrace from '@langtrase/typescript-sdk'
+
+Langtrace.init({ api_key: '8eb17cd8871779d580e88fa774a5b42510b108f0c5f1e38e3546e05d143375d7'})
 
 interface Message {
   user: string;
