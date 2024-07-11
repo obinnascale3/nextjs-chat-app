@@ -4,26 +4,26 @@ To get started with this project, follow these steps:
 
 ### Clone the Repository
 
-\`\`\`bash
-git clone https://github.com/your-username/your-repo-name.git
+```bash
+git clone https://github.com/obinnascale3/nextjs-chat-app
 cd your-repo-name
-\`\`\`
+```
 
 ### Install Dependencies
 
 Make sure you have [Node.js](https://nodejs.org/) installed. Then, install the project dependencies:
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### Run the Application
 
 Run the development server:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ### View the Application
 
