@@ -1,9 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import * as Langtrace from '@langtrase/typescript-sdk'
-
-Langtrace.init({ api_key: '8eb17cd8871779d580e88fa774a5b42510b108f0c5f1e38e3546e05d143375d7'})
 
 interface Message {
   user: string;
@@ -31,8 +28,9 @@ export default function Home() {
         const trimmedMessages = allMessages.slice(-8000);
         const response = await fetch('/api/chat', {body: JSON.stringify({ message: trimmedMessages }), method: 'POST', headers: { 'Content-Type': 'application/json' }});
         const reply = await response.json();
-        const messages = newMessages.slice(0, -1);
-        setMessages([...messages, { user: 'bot', text: reply }]);
+        console.log({reply})
+        const displayedMessages = newMessages.slice(0, -1);
+        setMessages([...displayedMessages, { user: 'bot', text: reply }]);
         
       } catch (error) {
         console.error('Error fetching response:', error);

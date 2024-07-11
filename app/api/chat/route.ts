@@ -1,7 +1,15 @@
 import { NextResponse } from 'next/server';
+import * as Langtrace from '@langtrase/typescript-sdk'
+import * as openai from 'openai';
+
 import OpenAI from "openai";
 
-const openai = new OpenAI({
+Langtrace.init({
+  instrumentations: {openai: openai},
+  api_key: process.env.LANGTRACE_API_KEY as string
+})
+
+const openAi = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY as string,
 });
 
@@ -13,7 +21,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const response = await openai.chat.completions.create({
+    const response = await openAi.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: message }],
     })
