@@ -6,7 +6,7 @@ To get started with this project, follow these steps:
 
 ```bash
 git clone https://github.com/obinnascale3/nextjs-chat-app
-cd your-repo-name
+cd nextjs-chat-app
 ```
 
 ### Install Dependencies
