@@ -28,7 +28,6 @@ export default function Home() {
         const trimmedMessages = allMessages.slice(-8000);
         const response = await fetch('/api/chat', {body: JSON.stringify({ message: trimmedMessages }), method: 'POST', headers: { 'Content-Type': 'application/json' }});
         const reply = await response.json();
-        console.log({reply})
         const displayedMessages = newMessages.slice(0, -1);
         setMessages([...displayedMessages, { user: 'bot', text: reply }]);
         
@@ -41,7 +40,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-6">
-        <h1 className="text-3xl font-bold mb-6 text-center">Chat with AI</h1>
+        <h1 className="text-3xl font-bold mb-6 text-center">Ask me anything.</h1>
         <div ref={chatBox} className="flex flex-col space-y-4 mb-4 h-96 overflow-y-scroll border border-gray-300 p-4 rounded-lg">
           {messages.map((message, index) => (
             <div key={index} className={`flex ${message.user === 'user' ? 'justify-end' : 'justify-start'}`}>
