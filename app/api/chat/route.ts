@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
   try {
     const response = await openAi.chat.completions.create({
-      model: 'gpt-3.5-turbo',
+      model: process.env.OPENAI_MODEL as string,
       messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: message }],
     })
 
